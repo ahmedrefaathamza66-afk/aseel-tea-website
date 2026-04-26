@@ -503,7 +503,7 @@ ul {
   background: linear-gradient(135deg, var(--gold), var(--gold-light));
   color: var(--green-dark);
   font-weight: 700;
-  font-size: 0.85rem;
+  font-size: 1rem;
   border-radius: 50px;
   margin-bottom: 16px;
   letter-spacing: 2px;
@@ -2468,4 +2468,109 @@ ul {
   border-color: var(--karak-brown);
   transform: scale(1.05);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+/* ===== MOBILE SCROLL HINT ===== */
+.mobile-scroll-hint {
+  display: none;
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  color: white;
+  z-index: 10;
+  animation: hintBounce 2s infinite;
+}
+
+.scroll-hint-text {
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  background: rgba(201, 162, 39, 0.9);
+  padding: 6px 16px;
+  border-radius: 50px;
+  color: #1a4a2e;
+}
+
+.scroll-hint-arrow {
+  font-size: 1.5rem;
+  color: var(--gold);
+}
+
+@keyframes hintBounce {
+
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+
+  50% {
+    transform: translateX(-50%) translateY(10px);
+  }
+}
+
+@media (max-width: 768px) {
+  .mobile-scroll-hint {
+    display: block;
+  }
+
+  /* إخفاء scroll-down القديم على الموبايل */
+  .scroll-down {
+    display: none;
+  }
+}
+
+/* ===== CART FIX ===== */
+.cart-item-price-wrap {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+
+.cart-old-price {
+  font-size: 0.75rem;
+  color: #aaa;
+  text-decoration: line-through;
+}
+
+.cart-item-price {
+  font-size: 0.85rem;
+  color: var(--gold);
+  font-weight: 700;
+}
+
+.cart-discount-tag {
+  font-size: 0.7rem;
+  background: #fee2e2;
+  color: #ef4444;
+  padding: 2px 6px;
+  border-radius: 50px;
+  font-weight: 700;
+}
+#cartItems {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  overflow-y: auto;
+  /* لو المحتوى كتير */
+}
+
+#cartItems .cart-item {
+  position: static !important;
+  /* مهم: يمنع التراكب لو كان absolute */
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#cartItems {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+#cartItems .cart-item {
+  position: static !important;
 }

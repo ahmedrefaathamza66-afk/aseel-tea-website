@@ -95,6 +95,14 @@
       <span></span>
       <p>اسحب للأسفل</p>
     </div>
+
+    <!-- Scroll Indicator للموبايل -->
+    <div class="mobile-scroll-hint">
+      <div class="scroll-hint-text">اتسوق دلوقتي</div>
+      <div class="scroll-hint-arrow">
+        <i class="fas fa-chevron-down"></i>
+      </div>
+    </div>
   </section>
 
   <!-- FEATURES BAR -->
@@ -131,14 +139,13 @@
     <div class="products-grid">
 
       <!-- 40 جرام -->
-    <div class="product-card" data-name="شاي أسمر أصيل" data-weight="40 جرام" data-price="10" data-category="black"
-      data-discount="0" data-discount-type="percent">
+    <div class="product-card">
       <div class="card-badge">الأكثر مبيعاً</div>
-      <div class="discount-badge" id="disc-badge-1">خصم 20%</div>
+      <div class="discount-badge hidden"></div>
       <div class="card-img-wrap">
         <img src="images/40g.jpeg" alt="شاي أسمر 40 جرام" class="card-img">
         <div class="card-overlay">
-          <button class="btn-order" onclick="addToCart(this)">
+          <button class="btn-order" onclick="addToCartById(1)">
             <i class="fas fa-shopping-basket"></i> أضف للسلة
           </button>
         </div>
@@ -152,7 +159,7 @@
             <span class="card-price-old"></span>
             <span class="card-price">10 جنيه</span>
           </div>
-          <button class="btn-add-cart" onclick="addToCart(this.closest('.product-card'))">
+          <button class="btn-add-cart" onclick="addToCartById(1)">
             <i class="fas fa-plus"></i> أضف للسلة
           </button>
         </div>
@@ -160,48 +167,42 @@
     </div>
     
       <!-- 100 جرام -->
-      <div class="product-card"
-     data-name="شاي أسمر أصيل"
-     data-weight="100 جرام"
-     data-price="30"
-     data-category="black"
-     data-discount="0"
-     data-discount-type="percent">
-    <div class="discount-badge hidden"></div>
-    <div class="card-img-wrap">
+    <div class="product-card">
+      <div class="discount-badge hidden"></div>
+      <div class="card-img-wrap">
         <img src="images/100g.jpeg" alt="شاي أسمر 100 جرام" class="card-img">
         <div class="card-overlay">
-            <button class="btn-order" onclick="addToCart(this.closest('.product-card'))">
-                <i class="fas fa-shopping-basket"></i> أضف للسلة
-            </button>
+          <button class="btn-order" onclick="addToCartById(2)">
+            <i class="fas fa-shopping-basket"></i> أضف للسلة
+          </button>
         </div>
-    </div>
-    <div class="card-body">
+      </div>
+      <div class="card-body">
         <h3 class="card-title">شاي أسمر أصيل</h3>
         <p class="card-weight"><i class="fas fa-weight-hanging"></i> 100 جرام</p>
         <p class="card-desc">شاي أسمر ناعم بنكهة طبيعية مميزة</p>
         <div class="card-price-row">
-            <div class="price-wrap">
-                <span class="card-price-old"></span>
-                <span class="card-price">30 جنيه</span>
-            </div>
-            <button class="btn-add-cart" onclick="addToCart(this.closest('.product-card'))">
-                <i class="fas fa-plus"></i> أضف للسلة
-            </button>
+          <div class="price-wrap">
+            <span class="card-price-old"></span>
+            <span class="card-price">30 جنيه</span>
+          </div>
+          <button class="btn-add-cart" onclick="addToCartById(2)">
+            <i class="fas fa-plus"></i> أضف للسلة
+          </button>
         </div>
+      </div>
     </div>
-</div>
+
 
 
       <!-- 250 جرام -->
-      <div class="product-card" data-name="شاي أسمر أصيل" data-weight="250 جرام" data-price="55" data-category="black"
-        data-discount="0" data-discount-type="percent">
+      <div class="product-card">
         <div class="card-badge popular">الأوفر</div>
         <div class="discount-badge hidden"></div>
         <div class="card-img-wrap">
           <img src="images/250g.jpeg" alt="شاي أسمر 250 جرام" class="card-img">
           <div class="card-overlay">
-            <button class="btn-order" onclick="addToCart(this.closest('.product-card'))">
+            <button class="btn-order" onclick="addToCartById(3)">
               <i class="fas fa-shopping-basket"></i> أضف للسلة
             </button>
           </div>
@@ -215,7 +216,7 @@
               <span class="card-price-old"></span>
               <span class="card-price">55 جنيه</span>
             </div>
-            <button class="btn-add-cart" onclick="addToCart(this.closest('.product-card'))">
+            <button class="btn-add-cart" onclick="addToCartById(3)">
               <i class="fas fa-plus"></i> أضف للسلة
             </button>
           </div>
@@ -223,42 +224,40 @@
       </div>
 
       <!-- 500 جرام -->
-      <div class="product-card" data-name="شاي أسمر أصيل" data-weight="500 جرام" data-price="110" data-category="black"
-        data-discount="0" data-discount-type="percent">
-        <div class="discount-badge hidden"></div>
-        <div class="card-img-wrap">
-          <img src="images/500g.jpeg" alt="شاي أسمر 500 جرام" class="card-img">
-          <div class="card-overlay">
-            <button class="btn-order" onclick="addToCart(this.closest('.product-card'))">
-              <i class="fas fa-shopping-basket"></i> أضف للسلة
-            </button>
-          </div>
-        </div>
-        <div class="card-body">
-          <h3 class="card-title">شاي أسمر أصيل</h3>
-          <p class="card-weight"><i class="fas fa-weight-hanging"></i> 500 جرام</p>
-          <p class="card-desc">شاي أسمر ناعم بنكهة طبيعية مميزة</p>
-          <div class="card-price-row">
-            <div class="price-wrap">
-              <span class="card-price-old"></span>
-              <span class="card-price">110 جنيه</span>
-            </div>
-            <button class="btn-add-cart" onclick="addToCart(this.closest('.product-card'))">
-              <i class="fas fa-plus"></i> أضف للسلة
-            </button>
-          </div>
+    <div class="product-card">
+      <div class="discount-badge hidden"></div>
+      <div class="card-img-wrap">
+        <img src="images/500g.jpeg" alt="شاي أسمر 500 جرام" class="card-img">
+        <div class="card-overlay">
+          <button class="btn-order" onclick="addToCartById(4)">
+            <i class="fas fa-shopping-basket"></i> أضف للسلة
+          </button>
         </div>
       </div>
+      <div class="card-body">
+        <h3 class="card-title">شاي أسمر أصيل</h3>
+        <p class="card-weight"><i class="fas fa-weight-hanging"></i> 500 جرام</p>
+        <p class="card-desc">شاي أسمر ناعم بنكهة طبيعية مميزة</p>
+        <div class="card-price-row">
+          <div class="price-wrap">
+            <span class="card-price-old"></span>
+            <span class="card-price">110 جنيه</span>
+          </div>
+          <button class="btn-add-cart" onclick="addToCartById(4)">
+            <i class="fas fa-plus"></i> أضف للسلة
+          </button>
+        </div>
+      </div>
+    </div>
 
       <!-- 1000 جرام -->
-    <div class="product-card" data-name="شاي أسمر أصيل" data-weight="1000 جرام" data-price="220" data-category="black"
-      data-discount="0" data-discount-type="percent">
+    <div class="product-card">
       <div class="card-badge economy">اقتصادي</div>
       <div class="discount-badge hidden"></div>
       <div class="card-img-wrap">
         <img src="images/1000g.jpeg" alt="شاي أسمر 1 كيلو" class="card-img">
         <div class="card-overlay">
-          <button class="btn-order" onclick="addToCart(this.closest('.product-card'))">
+          <button class="btn-order" onclick="addToCartById(5)">
             <i class="fas fa-shopping-basket"></i> أضف للسلة
           </button>
         </div>
@@ -272,27 +271,20 @@
             <span class="card-price-old"></span>
             <span class="card-price">220 جنيه</span>
           </div>
-          <button class="btn-add-cart" onclick="addToCart(this.closest('.product-card'))">
+          <button class="btn-add-cart" onclick="addToCartById(5)">
             <i class="fas fa-plus"></i> أضف للسلة
           </button>
         </div>
       </div>
     </div>
-
       <!-- فتلة -->
-      <!-- <div class="product-card"
-     data-name="شاي فتلة أصيل"
-     data-weight="فتلة"
-     data-price="0"
-     data-category="black"
-     data-discount="0"
-     data-discount-type="percent">
+      <!-- <div class="product-card">
     <div class="card-badge special">مميز</div>
     <div class="discount-badge hidden"></div>
     <div class="card-img-wrap">
         <img src="images/fatla-tea.jpg" alt="شاي فتلة" class="card-img">
         <div class="card-overlay">
-            <button class="btn-order" onclick="addToCart(this.closest('.product-card'))">
+            <button class="btn-order" onclick="addToCartById(6)">
                 <i class="fas fa-shopping-basket"></i> أضف للسلة
             </button>
         </div>
@@ -306,7 +298,7 @@
                 <span class="card-price-old"></span>
                 <span class="card-price contact-price">اتصل للسعر</span>
             </div>
-            <button class="btn-add-cart" onclick="addToCart(this.closest('.product-card'))">
+            <button class="btn-add-cart" onclick="addToCartById(6)">
                 <i class="fas fa-plus"></i> أضف للسلة
             </button>
         </div>
@@ -329,14 +321,13 @@
     <div class="products-grid karak-grid">
 
       <!-- علبة 10 أكياس -->
-      <div class="product-card karak-card" data-name="شاي كرك أصيل" data-weight="علبة 10 أكياس" data-price="150"
-        data-category="karak" data-discount="0" data-discount-type="percent">
+      <div class="product-card karak-card">
         <div class="card-badge karak-badge">الأكثر طلباً</div>
         <div class="discount-badge hidden"></div>
         <div class="card-img-wrap">
-          <img src="images/karak-box.jpg.jpeg" alt="شاي كرك علبة" class="card-img">
+          <img src="images/karak-box.jpg" alt="شاي كرك علبة" class="card-img">
           <div class="card-overlay karak-overlay">
-            <button class="btn-order karak-btn" onclick="addToCart(this.closest('.product-card'))">
+            <button class="btn-order karak-btn" onclick="addToCartById(7)">
               <i class="fas fa-shopping-basket"></i> أضف للسلة
             </button>
           </div>
@@ -355,55 +346,59 @@
               <span class="card-price-old"></span>
               <span class="card-price karak-price">150 جنيه</span>
             </div>
-            <button class="btn-add-cart karak-add" onclick="addToCart(this.closest('.product-card'))">
+            <button class="btn-add-cart karak-add" onclick="addToCartById(7)">
               <i class="fas fa-plus"></i> أضف للسلة
             </button>
           </div>
         </div>
       </div>
+
 
       <!-- كيلو كرك -->
       <!-- ========== KARAK BY WEIGHT CARD ========== -->
       <!-- استبدل كارت شاي كرك (كيلو) بده -->
-      <div class="product-card karak-card" id="karak-by-weight-card" data-name="شاي كرك أصيل (بودر)" data-base-price="560"
-        data-category="karak" data-discount="0" data-discount-type="percent">
-        <div class="card-badge economy">اقتصادي</div>
-        <div class="discount-badge hidden"></div>
-        <div class="card-img-wrap">
-          <img src="images/karak2.jpeg" alt="شاي كرك بودر" class="card-img">
-          <div class="card-overlay karak-overlay">
-            <button class="btn-order karak-btn" onclick="addToCart(this.closest('.product-card'))">
-              <i class="fas fa-shopping-basket"></i> أضف للسلة
-            </button>
-          </div>
-        </div>
-        <div class="card-body">
-          <h3 class="card-title">شاي كرك أصيل (بودر)</h3>
-          <p class="card-desc">اختار الوزن المناسب ليك - سعر الكيلو 560 جنيه</p>
-      
-          <!-- أزرار اختيار الوزن -->
-          <div class="weight-options-wrap">
-            <button class="weight-btn" data-grams="125" data-label="تمن كيلو" onclick="selectKarakWeight(this)">تمن
-              كيلو</button>
-            <button class="weight-btn" data-grams="250" data-label="ربع كيلو" onclick="selectKarakWeight(this)">ربع
-              كيلو</button>
-            <button class="weight-btn" data-grams="500" data-label="نص كيلو" onclick="selectKarakWeight(this)">نص
-              كيلو</button>
-            <button class="weight-btn" data-grams="1000" data-label="كيلو" onclick="selectKarakWeight(this)">كيلو</button>
-          </div>
-      
-          <div class="card-price-row karak-price-row">
-            <div class="price-wrap">
-              <span class="card-price-old"></span>
-              <span class="card-price karak-price">0 جنيه</span> <!-- هيتغير تلقائي بالـ JS -->
-            </div>
-            <button class="btn-add-cart karak-add" onclick="addToCart(this.closest('.product-card'))">
-              <i class="fas fa-plus"></i> أضف للسلة
-            </button>
-          </div>
+    <div class="product-card karak-card" id="karak-by-weight-card">
+      <div class="card-badge economy">اقتصادي</div>
+      <div class="discount-badge hidden"></div>
+      <div class="card-img-wrap">
+        <img src="images/karak-stick.jpg" alt="شاي كرك بودر" class="card-img">
+        <div class="card-overlay karak-overlay">
+          <button class="btn-order karak-btn" onclick="addSelectedKarakToCart()">
+            <i class="fas fa-shopping-basket"></i> أضف للسلة
+          </button>
         </div>
       </div>
-
+      <div class="card-body">
+        <h3 class="card-title">شاي كرك أصيل (بودر)</h3>
+        <p class="card-weight" id="karak-weight-display">
+          <i class="fas fa-weight-hanging"></i> تمن كيلو (125 جرام)
+        </p>
+        <p class="card-desc">اختار الوزن - سعر الكيلو 560 جنيه</p>
+        <div class="weight-options-wrap">
+          <button class="weight-btn active" data-grams="125" data-label="تمن كيلو" onclick="selectKarakWeight(this)">
+            تمن كيلو<br><small>70 جنيه</small>
+          </button>
+          <button class="weight-btn" data-grams="250" data-label="ربع كيلو" onclick="selectKarakWeight(this)">
+            ربع كيلو<br><small>140 جنيه</small>
+          </button>
+          <button class="weight-btn" data-grams="500" data-label="نص كيلو" onclick="selectKarakWeight(this)">
+            نص كيلو<br><small>280 جنيه</small>
+          </button>
+          <button class="weight-btn" data-grams="1000" data-label="كيلو" onclick="selectKarakWeight(this)">
+            كيلو<br><small>560 جنيه</small>
+          </button>
+        </div>
+        <div class="card-price-row karak-price-row">
+          <div class="price-wrap">
+            <span class="card-price-old"></span>
+            <span class="card-price karak-price" id="karak-price-display">70 جنيه</span>
+          </div>
+          <button class="btn-add-cart karak-add" onclick="addSelectedKarakToCart()">
+            <i class="fas fa-plus"></i> أضف للسلة
+          </button>
+        </div>
+      </div>
+    </div>
     </div>
   </section>
 
@@ -781,16 +776,16 @@
           <i class="fas fa-times"></i>
         </button>
       </div>
-
+  
+      <!-- ⭐ مش محتاج cartEmpty هنا خالص -->
       <div class="cart-items" id="cartItems">
-        <!-- العناصر هتتحط هنا تلقائي -->
-        <div class="cart-empty" id="cartEmpty">
+        <div class="cart-empty">
           <i class="fas fa-shopping-basket"></i>
           <p>السلة فارغة</p>
           <span>أضف منتجات للسلة</span>
         </div>
       </div>
-
+  
       <div class="cart-footer" id="cartFooter" style="display:none">
         <div class="cart-total-row">
           <span>إجمالي الطلب:</span>
@@ -807,6 +802,7 @@
       </div>
     </div>
   </div>
+  
 
   <!-- CHECKOUT MODAL -->
   <div id="checkoutModal" class="modal hidden">
