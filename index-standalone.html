@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>شاي أصيل - Aseel Tea</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+  <!-- LOADER -->
+  <div id="loader">
+    <div class="loader-content">
+      <div class="loader-logo">أصيل</div>
+      <div class="loader-text">Aseel Tea</div>
+      <div class="loader-bar">
+        <div class="loader-fill"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav id="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <span class="logo-ar">أصيل</span>
+        <span class="logo-en">Aseel Tea</span>
+      </div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">الرئيسية</a></li>
+        <li><a href="#black-tea">الشاي الأسمر</a></li>
+        <li><a href="#karak-tea">شاي كرك</a></li>
+        <li><a href="#wholesale">بيع الجملة</a></li>
+        <li><a href="#about">عن البراند</a></li>
+        <li><a href="#contact">تواصل معنا</a></li>
+      </ul>
+      <!-- حط ده جوا nav-container قبل hamburger -->
+      <div class="cart-icon-wrap" onclick="toggleCart()">
+        <i class="fas fa-shopping-basket"></i>
+        <span class="cart-count" id="cartCount">0</span>
+      </div>
+      <div class="hamburger" id="hamburger">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="home" class="hero">
+    <div class="hero-slider">
+      <div class="slide active" style="background-image: url('images/BG1.png')">
+        <div class="slide-overlay"></div>
+        <div class="slide-content">
+          <h1 class="slide-title">طعم الأصالة في كل كوب</h1>
+          <p class="slide-desc">شاي أصيل - من قلب الطبيعة إلى المائدة المصرية</p>
+          <a href="#black-tea" class="btn-hero">تسوق الآن</a>
+        </div>
+      </div>
+      <div class="slide" style="background-image: url('images/BG2.png')">
+        <div class="slide-overlay"></div>
+        <div class="slide-content">
+          <h1 class="slide-title">شاي كرك أصيل</h1>
+          <p class="slide-desc">تجربة فريدة بنكهة الهيل والقرفة - علبة 10 أكياس بـ 150 جنيه</p>
+          <a href="#karak-tea" class="btn-hero">اكتشف شاي كرك</a>
+        </div>
+      </div>
+      <div class="slide" style="background-image: url('images/BG3.png')">
+        <div class="slide-overlay"></div>
+        <div class="slide-content">
+          <h1 class="slide-title">جودة لا تُضاهى</h1>
+          <p class="slide-desc">شاي أسمر ناعم يبدأ من 10 جنيه بس!</p>
+          <a href="#wholesale" class="btn-hero">بيع الجملة</a>
+        </div>
+      </div>
+    </div>
+    <div class="slider-controls">
+      <button class="slider-btn prev" id="prevBtn"><i class="fas fa-chevron-right"></i></button>
+      <div class="slider-dots" id="sliderDots">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </div>
+      <button class="slider-btn next" id="nextBtn"><i class="fas fa-chevron-left"></i></button>
+    </div>
+    <div class="steam-container">
+      <div class="steam s1"></div>
+      <div class="steam s2"></div>
+      <div class="steam s3"></div>
+    </div>
+    <div class="scroll-down">
+      <span></span>
+      <p>اسحب للأسفل</p>
+    </div>
+  </section>
+
+  <!-- FEATURES BAR -->
+  <section class="features-bar">
+    <div class="features-container">
+      <div class="feature-item">
+        <i class="fas fa-leaf"></i>
+        <span>100% طبيعي</span>
+      </div>
+      <div class="feature-item">
+        <i class="fas fa-award"></i>
+        <span>جودة مضمونة</span>
+      </div>
+      <div class="feature-item">
+        <i class="fas fa-tag"></i>
+        <span>أسعار تبدأ من 10 جنيه</span>
+      </div>
+      <div class="feature-item">
+        <i class="fas fa-store"></i>
+        <span>متاح للجملة</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLACK TEA SECTION -->
+  <section id="black-tea" class="products-section">
+    <div class="section-header">
+      <div class="section-tag">منتجاتنا</div>
+      <h2 class="section-title">الشاي الأسمر <span>أصيل</span></h2>
+      <p class="section-desc">أجود أنواع الشاي الأسمر المختار - بطعم ناعم وأصيل وأسعار تناسب الجميع</p>
+      <div class="title-divider"><span></span><i class="fas fa-mug-hot"></i><span></span></div>
+    </div>
+
+    <div class="products-grid">
+
+      <!-- 40 جرام -->
+    <div class="product-card" data-name="شاي أسمر أصيل" data-weight="40 جرام" data-price="10" data-category="black"
+      data-discount="0" data-discount-type="percent">
+      <div class="card-badge">الأكثر مبيعاً</div>
+      <div class="discount-badge" id="disc-badge-1">خصم 20%</div>
+      <div class="card-img-wrap">
+        <img src="images/40g.jpeg" alt="شاي أسمر 40 جرام" class="card-img">
+        <div class="card-overlay">
+          <button class="btn-order" onclick="addToCart(this)">
+            <i class="fas fa-shopping-basket"></i> أضف للسلة
+          </button>
+        </div>
+      </div>
+      <div class="card-body">
+        <h3 class="card-title">شاي أسمر أصيل</h3>
+        <p class="card-weight"><i class="fas fa-weight-hanging"></i> 40 جرام</p>
+        <p class="card-desc">شاي أسمر ناعم بنكهة طبيعية مميزة</p>
+        <div class="card-price-row">
+          <div class="price-wrap">
+            <span class="card-price-old"></span>
+            <span class="card-price">10 جنيه</span>
+          </div>
+          <button class="btn-add-cart" onclick="addToCart(this.closest('.product-card'))">
+            <i class="fas fa-plus"></i> أضف للسلة
+          </button>
+        </div>
+      </div>
+    </div>
+    
+      <!-- 100 جرام -->
+      <div class="product-card"
+     data-name="شاي أسمر أصيل"
+     data-weight="100 جرام"
+     data-price="30"
+     data-category="black"
+     data-discount="0"
+     data-discount-type="percent">
+    <div class="discount-badge hidden"></div>
+    <div class="card-img-wrap">
+        <img src="images/100g.jpeg" alt="شاي أسمر 100 جرام" class="card-img">
+        <div class="card-overlay">
+            <button class="btn-order" onclick="addToCart(this.closest('.product-card'))">
+                <i class="fas fa-shopping-basket"></i> أضف للسلة
+            </button>
+        </div>
+    </div>
+    <div class="card-body">
+        <h3 class="card-title">شاي أسمر أصيل</h3>
+        <p class="card-weight"><i class="fas fa-weight-hanging"></i> 100 جرام</p>
+        <p class="card-desc">شاي أسمر ناعم بنكهة طبيعية مميزة</p>
+        <div class="card-price-row">
+            <div class="price-wrap">
+                <span class="card-price-old"></span>
+                <span class="card-price">30 جنيه</span>
+            </div>
+            <button class="btn-add-cart" onclick="addToCart(this.closest('.product-card'))">
+                <i class="fas fa-plus"></i> أضف للسلة
+            </button>
+        </div>
+    </div>
+</div>
+
+
+      <!-- 250 جرام -->
+      <div class="product-card" data-name="شاي أسمر أصيل" data-weight="250 جرام" data-price="55" data-category="black"
+        data-discount="0" data-discount-type="percent">
+        <div class="card-badge popular">الأوفر</div>
+        <div class="discount-badge hidden"></div>
+        <div class="card-img-wrap">
+          <img src="images/250g.jpeg" alt="شاي أسمر 250 جرام" class="card-img">
+          <div class="card-overlay">
+            <button class="btn-order" onclick="addToCart(this.closest('.product-card'))">
+              <i class="fas fa-shopping-basket"></i> أضف للسلة
+            </button>
+          </div>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">شاي أسمر أصيل</h3>
+          <p class="card-weight"><i class="fas fa-weight-hanging"></i> 250 جرام</p>
+          <p class="card-desc">شاي أسمر ناعم بنكهة طبيعية مميزة</p>
+          <div class="card-price-row">
+            <div class="price-wrap">
+              <span class="card-price-old"></span>
+              <span class="card-price">55 جنيه</span>
+            </div>
+            <button class="btn-add-cart" onclick="addToCart(this.closest('.product-card'))">
+              <i class="fas fa-plus"></i> أضف للسلة
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 500 جرام -->
+      <div class="product-card" data-name="شاي أسمر أصيل" data-weight="500 جرام" data-price="110" data-category="black"
+        data-discount="0" data-discount-type="percent">
+        <div class="discount-badge hidden"></div>
+        <div class="card-img-wrap">
+          <img src="images/500g.jpeg" alt="شاي أسمر 500 جرام" class="card-img">
+          <div class="card-overlay">
+            <button class="btn-order" onclick="addToCart(this.closest('.product-card'))">
+              <i class="fas fa-shopping-basket"></i> أضف للسلة
+            </button>
+          </div>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">شاي أسمر أصيل</h3>
+          <p class="card-weight"><i class="fas fa-weight-hanging"></i> 500 جرام</p>
+          <p class="card-desc">شاي أسمر ناعم بنكهة طبيعية مميزة</p>
+          <div class="card-price-row">
+            <div class="price-wrap">
+              <span class="card-price-old"></span>
+              <span class="card-price">110 جنيه</span>
+            </div>
+            <button class="btn-add-cart" onclick="addToCart(this.closest('.product-card'))">
+              <i class="fas fa-plus"></i> أضف للسلة
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 1000 جرام -->
+    <div class="product-card" data-name="شاي أسمر أصيل" data-weight="1000 جرام" data-price="220" data-category="black"
+      data-discount="0" data-discount-type="percent">
+      <div class="card-badge economy">اقتصادي</div>
+      <div class="discount-badge hidden"></div>
+      <div class="card-img-wrap">
+        <img src="images/1000g.jpeg" alt="شاي أسمر 1 كيلو" class="card-img">
+        <div class="card-overlay">
+          <button class="btn-order" onclick="addToCart(this.closest('.product-card'))">
+            <i class="fas fa-shopping-basket"></i> أضف للسلة
+          </button>
+        </div>
+      </div>
+      <div class="card-body">
+        <h3 class="card-title">شاي أسمر أصيل</h3>
+        <p class="card-weight"><i class="fas fa-weight-hanging"></i> 1000 جرام (1 كيلو)</p>
+        <p class="card-desc">شاي أسمر ناعم بنكهة طبيعية مميزة</p>
+        <div class="card-price-row">
+          <div class="price-wrap">
+            <span class="card-price-old"></span>
+            <span class="card-price">220 جنيه</span>
+          </div>
+          <button class="btn-add-cart" onclick="addToCart(this.closest('.product-card'))">
+            <i class="fas fa-plus"></i> أضف للسلة
+          </button>
+        </div>
+      </div>
+    </div>
+
+      <!-- فتلة -->
+      <!-- <div class="product-card"
+     data-name="شاي فتلة أصيل"
+     data-weight="فتلة"
+     data-price="0"
+     data-category="black"
+     data-discount="0"
+     data-discount-type="percent">
+    <div class="card-badge special">مميز</div>
+    <div class="discount-badge hidden"></div>
+    <div class="card-img-wrap">
+        <img src="images/fatla-tea.jpg" alt="شاي فتلة" class="card-img">
+        <div class="card-overlay">
+            <button class="btn-order" onclick="addToCart(this.closest('.product-card'))">
+                <i class="fas fa-shopping-basket"></i> أضف للسلة
+            </button>
+        </div>
+    </div>
+    <div class="card-body">
+        <h3 class="card-title">شاي فتلة أصيل</h3>
+        <p class="card-weight"><i class="fas fa-star"></i> نوع مميز</p>
+        <p class="card-desc">شاي فتلة بطعم قوي وأصيل</p>
+        <div class="card-price-row">
+            <div class="price-wrap">
+                <span class="card-price-old"></span>
+                <span class="card-price contact-price">اتصل للسعر</span>
+            </div>
+            <button class="btn-add-cart" onclick="addToCart(this.closest('.product-card'))">
+                <i class="fas fa-plus"></i> أضف للسلة
+            </button>
+        </div>
+    </div>
+</div> -->
+
+    </div>
+  </section>
+
+  <!-- KARAK TEA SECTION -->
+  <section id="karak-tea" class="products-section karak-section">
+    <div class="karak-bg-decor"></div>
+    <div class="section-header">
+      <div class="section-tag karak-tag">الجديد</div>
+      <h2 class="section-title">شاي كرك <span class="karak-span">أصيل</span></h2>
+      <p class="section-desc">تجربة شاي كرك فاخرة بمزيج الهيل والقرفة والقرنفل</p>
+      <div class="title-divider karak-divider"><span></span><i class="fas fa-fire"></i><span></span></div>
+    </div>
+
+    <div class="products-grid karak-grid">
+
+      <!-- علبة 10 أكياس -->
+      <div class="product-card karak-card" data-name="شاي كرك أصيل" data-weight="علبة 10 أكياس" data-price="150"
+        data-category="karak" data-discount="0" data-discount-type="percent">
+        <div class="card-badge karak-badge">الأكثر طلباً</div>
+        <div class="discount-badge hidden"></div>
+        <div class="card-img-wrap">
+          <img src="images/karak-box.jpg.jpeg" alt="شاي كرك علبة" class="card-img">
+          <div class="card-overlay karak-overlay">
+            <button class="btn-order karak-btn" onclick="addToCart(this.closest('.product-card'))">
+              <i class="fas fa-shopping-basket"></i> أضف للسلة
+            </button>
+          </div>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">شاي كرك أصيل</h3>
+          <p class="card-weight"><i class="fas fa-box"></i> علبة - 10 أكياس</p>
+          <p class="card-desc">علبة شاي كرك فاخرة بمزيج توابل أصيلة</p>
+          <div class="karak-features">
+            <span><i class="fas fa-check"></i> هيل</span>
+            <span><i class="fas fa-check"></i> قرفة</span>
+            <span><i class="fas fa-check"></i> قرنفل</span>
+          </div>
+          <div class="card-price-row karak-price-row">
+            <div class="price-wrap">
+              <span class="card-price-old"></span>
+              <span class="card-price karak-price">150 جنيه</span>
+            </div>
+            <button class="btn-add-cart karak-add" onclick="addToCart(this.closest('.product-card'))">
+              <i class="fas fa-plus"></i> أضف للسلة
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- كيلو كرك -->
+      <!-- ========== KARAK BY WEIGHT CARD ========== -->
+      <!-- استبدل كارت شاي كرك (كيلو) بده -->
+      <div class="product-card karak-card" id="karak-by-weight-card" data-name="شاي كرك أصيل (بودر)" data-base-price="560"
+        data-category="karak" data-discount="0" data-discount-type="percent">
+        <div class="card-badge economy">اقتصادي</div>
+        <div class="discount-badge hidden"></div>
+        <div class="card-img-wrap">
+          <img src="images/karak2.jpeg" alt="شاي كرك بودر" class="card-img">
+          <div class="card-overlay karak-overlay">
+            <button class="btn-order karak-btn" onclick="addToCart(this.closest('.product-card'))">
+              <i class="fas fa-shopping-basket"></i> أضف للسلة
+            </button>
+          </div>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">شاي كرك أصيل (بودر)</h3>
+          <p class="card-desc">اختار الوزن المناسب ليك - سعر الكيلو 560 جنيه</p>
+      
+          <!-- أزرار اختيار الوزن -->
+          <div class="weight-options-wrap">
+            <button class="weight-btn" data-grams="125" data-label="تمن كيلو" onclick="selectKarakWeight(this)">تمن
+              كيلو</button>
+            <button class="weight-btn" data-grams="250" data-label="ربع كيلو" onclick="selectKarakWeight(this)">ربع
+              كيلو</button>
+            <button class="weight-btn" data-grams="500" data-label="نص كيلو" onclick="selectKarakWeight(this)">نص
+              كيلو</button>
+            <button class="weight-btn" data-grams="1000" data-label="كيلو" onclick="selectKarakWeight(this)">كيلو</button>
+          </div>
+      
+          <div class="card-price-row karak-price-row">
+            <div class="price-wrap">
+              <span class="card-price-old"></span>
+              <span class="card-price karak-price">0 جنيه</span> <!-- هيتغير تلقائي بالـ JS -->
+            </div>
+            <button class="btn-add-cart karak-add" onclick="addToCart(this.closest('.product-card'))">
+              <i class="fas fa-plus"></i> أضف للسلة
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- WHOLESALE SECTION -->
+  <section id="wholesale" class="wholesale-section">
+    <div class="wholesale-bg"></div>
+    <div class="wholesale-content">
+      <div class="wholesale-icon"><i class="fas fa-store-alt"></i></div>
+      <div class="section-tag wholesale-tag">للتجار</div>
+      <h2 class="wholesale-title">بيع الجملة للتجار</h2>
+      <p class="wholesale-desc">
+        نوفر لتجار الجملة أفضل الأسعار وأعلى جودة من شاي أصيل بجميع أوزانه وأنواعه<br>
+        سواء الشاي الأسمر بجميع أوزانه أو شاي الكرك - نحن شركاؤك الموثوقون
+      </p>
+      <div class="wholesale-features">
+        <div class="w-feature">
+          <i class="fas fa-percentage"></i>
+          <h4>أسعار تنافسية</h4>
+          <p>أسعار خاصة لتجار الجملة</p>
+        </div>
+        <div class="w-feature">
+          <i class="fas fa-boxes"></i>
+          <h4>كميات كبيرة</h4>
+          <p>توفير جميع الأوزان والأحجام</p>
+        </div>
+        <div class="w-feature">
+          <i class="fas fa-handshake"></i>
+          <h4>شراكة طويلة الأمد</h4>
+          <p>نبني علاقات تجارية ناجحة</p>
+        </div>
+        <div class="w-feature">
+          <i class="fas fa-truck"></i>
+          <h4>توصيل منتظم</h4>
+          <p>توصيل لجميع أنحاء مصر</p>
+        </div>
+      </div>
+      <button class="btn-wholesale" onclick="openWholesaleForm()">
+        <i class="fas fa-phone-alt"></i> تواصل معنا للجملة
+      </button>
+    </div>
+  </section>
+
+  <!-- ABOUT SECTION -->
+  <section id="about" class="about-section">
+    <div class="about-grid">
+      <div class="about-images">
+        <div class="about-img-main">
+          <img src="images/black-tea2.jpg.jpeg" alt="شاي أصيل">
+        </div>
+        <div class="about-img-secondary">
+          <img src="images/black-tea3.jpg.jpeg" alt="شاي أصيل">
+        </div>
+      </div>
+      <div class="about-content">
+        <div class="section-tag">من نحن</div>
+        <h2 class="about-title">قصة <span>أصيل</span></h2>
+        <p class="about-text">
+          شاي أصيل هو براند مصري متميز يقدم أجود أنواع الشاي من قلب الطبيعة إلى المائدة المصرية الأصيلة.
+          نحرص على اختيار أفضل أوراق الشاي بأسعار تناسب الجميع.
+        </p>
+        <p class="about-text">
+          من الشاي الأسمر الناعم يبدأ من 10 جنيه بس، إلى شاي الكرك الفاخر - كل منتج من أصيل هو وعد بالجودة والطعم
+          الأصيل.
+        </p>
+        <div class="about-stats">
+          <div class="stat">
+            <span class="stat-num" data-target="100">0</span><span>%</span>
+            <p>طبيعي</p>
+          </div>
+          <div class="stat">
+            <span class="stat-num" data-target="6">0</span><span>+</span>
+            <p>منتجات</p>
+          </div>
+          <div class="stat">
+            <span class="stat-num" data-target="1000">0</span><span>+</span>
+            <p>عميل راضٍ</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="gallery-section">
+    <div class="section-header">
+      <div class="section-tag">معرض الصور</div>
+      <h2 class="section-title">لحظات <span>أصيلة</span></h2>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item g-large">
+        <img src="images/img1.jpeg" alt="شاي أصيل">
+        <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/img2.jpeg" alt="شاي أصيل">
+        <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/img3.jpeg" alt="شاي أصيل">
+        <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/img4.jpeg" alt="شاي أصيل">
+        <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/img2.jpeg" alt="شاي أصيل">
+        <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact-section">
+    <div class="section-header">
+      <div class="section-tag">تواصل معنا</div>
+      <h2 class="section-title">نحن هنا <span>لخدمتك</span></h2>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="contact-item">
+          <i class="fas fa-phone-alt"></i>
+          <div>
+            <h4>اتصل بنا</h4>
+            <p>01106055828</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <i class="fab fa-whatsapp"></i>
+          <div>
+            <h4>واتساب</h4>
+            <p>01106055828</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-envelope"></i>
+          <div>
+            <h4>البريد الإلكتروني</h4>
+            <p>info@aseeltea.com</p>
+          </div>
+        </div>
+        <div class="social-links">
+          <a href="https://www.facebook.com/share/18N1atBdK8/?mibextid=wwXIfr" class="social-link"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/aseel__tea?igsh=NG9kN2FzdWd3aWF0&utm_source=qr" class="social-link"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.tiktok.com/@.aseel.tea?_r=1&_t=ZS-95rccWNNm0S" class="social-link"><i class="fab fa-tiktok"></i></a>
+          <a href="wa.me/201106055828" class="social-link whatsapp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div class="contact-form">
+        <form id="contactForm">
+          <div class="form-group">
+            <input type="text" placeholder="اسمك" required>
+          </div>
+          <div class="form-group">
+            <input type="tel" placeholder="رقم هاتفك" required>
+          </div>
+          <div class="form-group">
+            <select required>
+              <option value="">نوع الاستفسار</option>
+              <option>طلب منتج</option>
+              <option>استفسار عن الجملة</option>
+              <option>شكاوى واقتراحات</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <textarea placeholder="رسالتك..." rows="4"></textarea>
+          </div>
+          <button type="submit" class="btn-submit">
+            <i class="fas fa-paper-plane"></i> إرسال
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">أصيل <span>Aseel</span></div>
+        <p>شاي أصيل - من قلب الطبيعة إلى مائدتك</p>
+        <p class="footer-price-note">أسعار تبدأ من 10 جنيه بس! 🍵</p>
+      </div>
+      <div class="footer-links">
+        <h4>روابط سريعة</h4>
+        <ul>
+          <li><a href="#home">الرئيسية</a></li>
+          <li><a href="#black-tea">الشاي الأسمر</a></li>
+          <li><a href="#karak-tea">شاي كرك</a></li>
+          <li><a href="#wholesale">الجملة</a></li>
+        </ul>
+      </div>
+      <div class="footer-products">
+        <h4>الأسعار</h4>
+        <ul>
+          <li>40 جرام - 10 جنيه</li>
+          <li>100 جرام - 30 جنيه</li>
+          <li>250 جرام - 55 جنيه</li>
+          <li>500 جرام - 110 جنيه</li>
+          <li>1 كيلو - 220 جنيه</li>
+          <li>كرك علبة - 150 جنيه</li>
+          <li>كرك كيلو - 600 جنيه</li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h4>تواصل معنا</h4>
+        <p><i class="fas fa-phone-alt"></i> 01000000000</p>
+        <p><i class="fab fa-whatsapp"></i> 01000000000</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 شاي أصيل - جميع الحقوق محفوظة</p>
+    </div>
+  </footer>
+
+  <!-- ORDER PAGE -->
+  <div id="orderPage" class="order-page hidden">
+    <div class="order-header">
+      <button class="back-btn" onclick="closeOrderPage()">
+        <i class="fas fa-arrow-right"></i> رجوع للمنتجات
+      </button>
+      <div class="order-logo">أصيل Aseel</div>
+    </div>
+    <div class="order-content">
+      <div class="order-img-section">
+        <img id="orderImg" src="images/black-tea.jpg" alt="منتج">
+        <div class="order-product-badge" id="orderBadge">شاي أسمر</div>
+      </div>
+      <div class="order-form-section">
+        <h2 id="orderTitle">شاي أسمر أصيل</h2>
+        <p id="orderWeightDisplay" class="order-weight-display"></p>
+        <div class="order-price-display">
+          <span>السعر: </span>
+          <span id="orderPriceDisplay" class="order-price-num">0 جنيه</span>
+        </div>
+        <div class="order-divider"></div>
+        <form id="orderForm" class="order-form">
+          <h3><i class="fas fa-user"></i> بيانات الطلب</h3>
+          <div class="form-row">
+            <div class="form-group">
+              <label>الاسم بالكامل *</label>
+              <input type="text" id="orderName" placeholder="اسمك" required>
+            </div>
+            <div class="form-group">
+              <label>رقم الهاتف *</label>
+              <input type="tel" id="orderPhone" placeholder="01xxxxxxxxx" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>العنوان بالتفصيل *</label>
+            <input type="text" id="orderAddress" placeholder="المحافظة - المنطقة - الشارع" required>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>الكمية المطلوبة *</label>
+              <div class="qty-control">
+                <button type="button" onclick="changeQty(-1)">-</button>
+                <input type="number" id="orderQty" value="1" min="1" readonly>
+                <button type="button" onclick="changeQty(1)">+</button>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>إجمالي السعر</label>
+              <div class="total-price-box">
+                <span id="totalPrice">0</span>
+                <span> جنيه</span>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>ملاحظات إضافية</label>
+            <textarea id="orderNotes" placeholder="أي ملاحظات أو طلبات خاصة..." rows="3"></textarea>
+          </div>
+          <div class="order-summary">
+            <div class="summary-row">
+              <span>المنتج:</span>
+              <span id="summaryProduct">-</span>
+            </div>
+            <div class="summary-row">
+              <span>الوزن:</span>
+              <span id="summaryWeight">-</span>
+            </div>
+            <div class="summary-row">
+              <span>الكمية:</span>
+              <span id="summaryQty">1</span>
+            </div>
+            <div class="summary-row total-row">
+              <span>الإجمالي:</span>
+              <span id="summaryTotal" class="summary-total">0 جنيه</span>
+            </div>
+          </div>
+          <div class="order-actions">
+            <button type="submit" class="btn-confirm-order">
+              <i class="fas fa-check-circle"></i> تأكيد الطلب
+            </button>
+            <a id="whatsappOrder" href="#" class="btn-whatsapp-order" target="_blank">
+              <i class="fab fa-whatsapp"></i> اطلب عبر واتساب
+            </a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- WHOLESALE MODAL -->
+  <div id="wholesaleModal" class="modal hidden">
+    <div class="modal-overlay" onclick="closeWholesaleForm()"></div>
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeWholesaleForm()"><i class="fas fa-times"></i></button>
+      <h3><i class="fas fa-store-alt"></i> طلب جملة - شاي أصيل</h3>
+      <p>تواصل معنا للحصول على أفضل أسعار الجملة</p>
+      <form id="wholesaleForm">
+        <div class="form-group">
+          <input type="text" placeholder="اسم التاجر / الشركة" required>
+        </div>
+        <div class="form-group">
+          <input type="tel" placeholder="رقم الهاتف" required>
+        </div>
+        <div class="form-group">
+          <input type="text" placeholder="المنطقة / المحافظة" required>
+        </div>
+        <div class="form-group">
+          <select required>
+            <option value="">المنتج المطلوب</option>
+            <option>شاي أسمر 40 جرام - 10 جنيه</option>
+            <option>شاي أسمر 100 جرام - 30 جنيه</option>
+            <option>شاي أسمر 250 جرام - 55 جنيه</option>
+            <option>شاي أسمر 500 جرام - 110 جنيه</option>
+            <option>شاي أسمر 1 كيلو - 220 جنيه</option>
+            <option>شاي فتلة</option>
+            <option>شاي كرك علبة - 150 جنيه</option>
+            <option>شاي كرك كيلو - 600 جنيه</option>
+            <option>جميع المنتجات</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <textarea placeholder="الكمية المطلوبة وأي تفاصيل..." rows="3"></textarea>
+        </div>
+        <div class="modal-actions">
+          <button type="submit" class="btn-submit">
+            <i class="fas fa-paper-plane"></i> إرسال الطلب
+          </button>
+          <a href="https://wa.me/201106055828" class="btn-whatsapp-order" target="_blank">
+            <i class="fab fa-whatsapp"></i> واتساب
+          </a>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- TOAST -->
+  <div id="toast" class="toast hidden">
+    <i class="fas fa-check-circle"></i>
+    <span id="toastMsg">تم بنجاح!</span>
+  </div>
+
+  <!-- WhatsApp Float -->
+  <a href="https://wa.me/201106055828" class="whatsapp-float" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <!-- Scroll Top -->
+  <button class="scroll-top" id="scrollTop">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+  <!-- حط ده قبل closing body tag يعني قبل </body> -->
+
+  <!-- CART SIDEBAR -->
+  <div id="cartSidebar" class="cart-sidebar hidden">
+    <div class="cart-overlay" onclick="toggleCart()"></div>
+    <div class="cart-box">
+      <div class="cart-header">
+        <h3><i class="fas fa-shopping-basket"></i> سلة التسوق</h3>
+        <button onclick="toggleCart()" class="cart-close">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+
+      <div class="cart-items" id="cartItems">
+        <!-- العناصر هتتحط هنا تلقائي -->
+        <div class="cart-empty" id="cartEmpty">
+          <i class="fas fa-shopping-basket"></i>
+          <p>السلة فارغة</p>
+          <span>أضف منتجات للسلة</span>
+        </div>
+      </div>
+
+      <div class="cart-footer" id="cartFooter" style="display:none">
+        <div class="cart-total-row">
+          <span>إجمالي الطلب:</span>
+          <span class="cart-total-price" id="cartTotalPrice">0 جنيه</span>
+        </div>
+        <button class="btn-checkout" onclick="openCheckout()">
+          <i class="fas fa-check-circle"></i>
+          إتمام الطلب
+        </button>
+        <button class="btn-clear-cart" onclick="clearCart()">
+          <i class="fas fa-trash"></i>
+          إفراغ السلة
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- CHECKOUT MODAL -->
+  <div id="checkoutModal" class="modal hidden">
+    <div class="modal-overlay" onclick="closeCheckout()"></div>
+    <div class="modal-box checkout-box">
+      <button class="modal-close" onclick="closeCheckout()">
+        <i class="fas fa-times"></i>
+      </button>
+      <h3><i class="fas fa-shopping-bag"></i> إتمام الطلب</h3>
+
+      <!-- ملخص الطلب -->
+      <div class="checkout-summary" id="checkoutSummary">
+        <!-- هيتملا تلقائي -->
+      </div>
+
+      <div class="checkout-total">
+        <span>الإجمالي:</span>
+        <span id="checkoutTotal" class="checkout-total-num">0 جنيه</span>
+      </div>
+
+      <form id="checkoutForm">
+        <div class="form-group">
+          <label>الاسم بالكامل *</label>
+          <input type="text" id="checkoutName" placeholder="اسمك" required>
+        </div>
+        <div class="form-group">
+          <label>رقم الهاتف *</label>
+          <input type="tel" id="checkoutPhone" placeholder="01xxxxxxxxx" required>
+        </div>
+        <div class="form-group">
+          <label>العنوان بالتفصيل *</label>
+          <input type="text" id="checkoutAddress" placeholder="المحافظة - المنطقة - الشارع" required>
+        </div>
+        <div class="form-group">
+          <label>ملاحظات</label>
+          <textarea id="checkoutNotes" placeholder="أي ملاحظات..." rows="2"></textarea>
+        </div>
+        <div class="checkout-actions">
+          <button type="submit" class="btn-confirm-order">
+            <i class="fas fa-check-circle"></i>
+            تأكيد الطلب
+          </button>
+          <a id="checkoutWhatsapp" href="#" class="btn-whatsapp-order" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+            واتساب
+          </a>
+        </div>
+      </form>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>
