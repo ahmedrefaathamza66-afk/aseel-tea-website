@@ -282,9 +282,10 @@ function updateCheckoutWhatsapp() {
     '📞 الهاتف: ' + (phone || '...') + '\n' +
     '📍 العنوان: ' + (address || '...') + '\n' +
     (notes ? '📝 ملاحظات: ' + notes : '');
-
+ 
+  
   // ⬇️ غير الرقم لرقمك
-  var whatsappPhone = '201000000000';
+  var whatsappPhone = '201106055828';
   var link = document.getElementById('checkoutWhatsapp');
   if (link) link.href = 'https://wa.me/' + whatsappPhone + '?text=' + encodeURIComponent(message);
 }
