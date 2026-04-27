@@ -247,13 +247,16 @@ function openCheckout() {
 
   summary.innerHTML = html;
   document.getElementById('checkoutTotal').textContent = total + ' جنيه';
-  updateCheckoutWhatsapp();
+
 }
 
 function closeCheckout() {
   document.getElementById('checkoutModal').classList.add('hidden');
   document.body.style.overflow = '';
 }
+
+const BOT_TOKEN = "8689289199:AAFErf2nq-UZLkCevfAck-Llq8znnl7q0Jc";
+const CHAT_ID = "8630081317";
 
 function updateCheckoutWhatsapp() {
   var name = document.getElementById('checkoutName') ? document.getElementById('checkoutName').value : '';
@@ -278,36 +281,77 @@ function updateCheckoutWhatsapp() {
     '━━━━━━━━━━━━━━━\n' +
     '💵 *الإجمالي: ' + total + ' جنيه*\n' +
     '━━━━━━━━━━━━━━━\n' +
-    '👤 الاسم: ' + (name || '...') + '\n' +
-    '📞 الهاتف: ' + (phone || '...') + '\n' +
-    '📍 العنوان: ' + (address || '...') + '\n' +
-    (notes ? '📝 ملاحظات: ' + notes : '');
- 
-  
-  // ⬇️ غير الرقم لرقمك
-  var whatsappPhone = '201106055828';
-  var link = document.getElementById('checkoutWhatsapp');
-  if (link) link.href = 'https://wa.me/' + whatsappPhone + '?text=' + encodeURIComponent(message);
+    '👤 *الاسم:* ' + (name || 'لم يتم إدخاله') + '\n' +
+    '📞 *الهاتف:* ' + (phone || 'لم يتم إدخاله') + '\n' +
+    '📍 *العنوان:* ' + (address || 'لم يتم إدخاله') + '\n' +
+    (notes ? '📝 *ملاحظات:* ' + notes : '');
+
+  // إرسال لـ Telegram
+  sendToTelegram(message);
 }
 
-document.getElementById('checkoutName') && document.getElementById('checkoutName').addEventListener('input', updateCheckoutWhatsapp);
-document.getElementById('checkoutPhone') && document.getElementById('checkoutPhone').addEventListener('input', updateCheckoutWhatsapp);
-document.getElementById('checkoutAddress') && document.getElementById('checkoutAddress').addEventListener('input', updateCheckoutWhatsapp);
-document.getElementById('checkoutNotes') && document.getElementById('checkoutNotes').addEventListener('input', updateCheckoutWhatsapp);
+function sendToTelegram(message) {
+  fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      chat_id: CHAT_ID,
+      text: message,
+      parse_mode: 'Markdown'
+    })
+  })
+    .then(response => {
+      if (response.ok) {
+        // alert('✅ تم إرسال الطلب بنجاح!');
+      } else {
+        alert('❌ حدث خطأ، حاول مرة أخرى');
+      }
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      alert('❌ حدث خطأ في الإرسال');
+    });
+}
 
-document.getElementById('checkoutForm') && document.getElementById('checkoutForm').addEventListener('submit', function (e) {
-  e.preventDefault();
-  var name = document.getElementById('checkoutName').value.trim();
-  var phone = document.getElementById('checkoutPhone').value.trim();
-  var address = document.getElementById('checkoutAddress').value.trim();
-  if (!name || !phone || !address) { showToast('⚠️ يرجى ملء جميع الحقول'); return; }
-  if (!/^01[0125][0-9]{8}$/.test(phone)) { showToast('⚠️ رقم الهاتف غير صحيح'); return; }
-  updateCheckoutWhatsapp();
-  showToast('✅ جاري فتح واتساب...');
-  setTimeout(function () { document.getElementById('checkoutWhatsapp').click(); }, 500);
-  setTimeout(function () { closeCheckout(); clearCart(); document.getElementById('checkoutForm').reset(); }, 2000);
-});
+// document.getElementById('checkoutName') && document.getElementById('checkoutName').addEventListener('input', updateCheckoutWhatsapp);
+// document.getElementById('checkoutPhone') && document.getElementById('checkoutPhone').addEventListener('input', updateCheckoutWhatsapp);
+// document.getElementById('checkoutAddress') && document.getElementById('checkoutAddress').addEventListener('input', updateCheckoutWhatsapp);
+// document.getElementById('checkoutNotes') && document.getElementById('checkoutNotes').addEventListener('input', updateCheckoutWhatsapp);
 
+document.getElementById('checkoutForm') &&
+  document.getElementById('checkoutForm').addEventListener('submit', function (e) {
+
+    e.preventDefault();
+
+    var name = document.getElementById('checkoutName').value.trim();
+    var phone = document.getElementById('checkoutPhone').value.trim();
+    var address = document.getElementById('checkoutAddress').value.trim();
+
+    if (!name || !phone || !address) {
+      showToast('⚠️ يرجى ملء جميع الحقول');
+      return;
+    }
+
+    if (!/^01[0125][0-9]{8}$/.test(phone)) {
+      showToast('⚠️ رقم الهاتف غير صحيح');
+      return;
+    }
+
+    // ✅ هنا بس يتم الإرسال
+    updateCheckoutWhatsapp();
+
+    showToast('✅ تم إرسال الطلب بنجاح');
+
+    // ✅ تنظيف بعد الإرسال
+    setTimeout(function () {
+      closeCheckout();
+      clearCart();
+      document.getElementById('checkoutForm').reset();
+    }, 1500);
+
+  });
 // ===== WHOLESALE =====
 function openWholesaleForm() { document.getElementById('wholesaleModal').classList.remove('hidden'); document.body.style.overflow = 'hidden'; }
 function closeWholesaleForm() { document.getElementById('wholesaleModal').classList.add('hidden'); document.body.style.overflow = ''; }
